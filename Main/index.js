@@ -1,8 +1,8 @@
 const { prompt } = require("inquirer"); 
-const display = require("asciiart-disp");
+const display = require("asciiart-display");
 const db = require("./db");
-const { viewDepartmentBudgets } = require("./db");
-const { allowedNodeEnvironmentFlags } = require("process");
+// const { viewDepartmentBudgets } = require("./db");
+// const { allowedNodeEnvironmentFlags } = require("process");
 require("console.table");
 
 init ();
@@ -135,4 +135,43 @@ function loadMainPrompts () {
         }
     }
     )
+}
+
+// View all employees
+function viewEmployees() {
+    db.findAllEmployees()
+    .then(([rows]) => {
+        let employees = rows;
+        console.log("\n");
+        console.table(employees);
+    })
+    .then(() => loadMainPrompts());
+}
+
+// View all the employees that belong to a specific department
+function viewEmployeesBYDepartment() {
+    db.findAllDepartments()
+        .then(([rows]) => {
+            let departments = rows;
+            const departmentChoices = departments.map(({id, name}) => ({
+                name: name,
+                value: id
+        })); 
+
+        prompt([
+            {
+                type: "list",
+                name: "departmentId",
+                message: "Which department would you like to review employees?",
+                choices:departmentChoices
+            }
+        ])
+        .then(res => db.findAllEmployeesByDepartment (res.departmentId))
+        .then(([rows]) => {
+            let employees = rows;
+            console.log("\n");
+            console.table(employees);
+        })
+        .then(() => loadMainPrompts())
+    });
 }
