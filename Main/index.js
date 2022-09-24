@@ -364,7 +364,7 @@ function addRole() {
 }
 
 // Delete a role
-function deleteRole(){
+function removeRole(){
     db.findAllRoles()
         .then(([rows]) => {
             let roles = rows;
@@ -415,7 +415,7 @@ function addDepartment(){
 }
 
 // Delete a department
-function deleteDepartments(){
+function removeDepartment(){
     db.findAllDepartments()
         .then(([rows]) => {
             let departments = rows;
@@ -437,7 +437,7 @@ function deleteDepartments(){
 }
 
 // View all departments and their salaries
-function viewDepartmentSalary (){
+function viewDepartmentSalaryBudget(){
     db.viewDepartmentBudgets()
         .then(([rows]) => {
             let departments = rows;
