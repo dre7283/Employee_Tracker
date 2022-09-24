@@ -363,8 +363,58 @@ function addRole() {
         })
 }
 
+// Delete a role
+function deleteRole(){
+    db.findAllRoles()
+        .then(([rows]) => {
+            let roles = rows;
+            const roleChoices = roles.map(({id, title}) => ({
+                name: title,
+                value: id
+            }));
 
+            prompt([
+                {
+                    type: "list",
+                    name: "roleId",
+                    message: "Which role do you want to delete? (WARNING: If you delete the role you delete the employees)",
+                    choices: roleChoices
+                }
+            ])
+                .then(res => db.removeRole(res.roleId))
+                .then(() => console.log(`${role.tile} deleted from database`))
+                .then(() => loadMainPrompts())
+        })
 }
+
+// View all departments
+function viewDepartments () {
+    db.findAllDepartments ()
+        .then(([rows]) => {
+            let departments = rows;
+            console.log("\n");
+            console.table(departments);
+        })
+        .then(() => loadMainPrompts());
+}
+
+// Add a department
+function addDepartment(){
+    prompt([
+        {
+            name: "name",
+            message: "What is the name of this department?"
+        }
+    ])
+        .then(res => {
+            let name = res;
+            db.createDepartment(name)
+                .then(() => console.log(`${name.name} added to the database`))
+                .then(() => loadMainPrompts())
+        })
+}
+
+
 // Quit App
 function quit() {
     console.log("Finshed!")
