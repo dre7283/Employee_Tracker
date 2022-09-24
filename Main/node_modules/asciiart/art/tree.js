@@ -1,0 +1,34 @@
+/*
+~ Original ~
+
+		  \ /
+		-->*<--
+		  /o\
+		 /_\_\
+		/_/_0_\
+	   /_o_\_\_\
+	  /_/_/_/_/o\
+	 /@\_\_\@\_\_\
+	/_/_/O/_/_/_/_\
+   /_\_\_\_\_\o\_\_\
+  /_/0/_/_/_0_/_/@/_\
+ /_\_\_\_\_\_\_\_\_\_\
+/_/o/_/_/@/_/_/o/_/0/_\
+         [___]
+*/
+exports.art = `
+spaces(          )yellow(\ /)
+spaces(        )yellow(-->*<--)
+spaces(          )green(/)cyan(o)green(\)
+spaces(         )green(/_\_\)
+spaces(        )green(/_/_)magenta(0)green(_\)
+spaces(       )green(/_)white(o)green(_\_\_\)
+spaces(      )green(/_/_/_/_/)red(o)green(\)
+spaces(     )green(/@\_\_\@\_\_\)
+spaces(    )green(/_/_/O/_/_/_/_\)
+spaces(   )green(/_\_\_\_\_\o\_\_\)
+spaces(  )green(/_/0/_/_/_0_/_/@/_\)
+spaces( )green(/_\_\_\_\_\_\_\_\_\_\)
+green(/_/o/_/_/@/_/_/o/_/0/_\)
+spaces(         )red([___])
+`;

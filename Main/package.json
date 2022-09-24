@@ -9,7 +9,8 @@
     "author": "",
     "license": "MIT License",
     "dependencies": {
-        "asciiart-logo":"0.2.7",
+        "asciiart": "^1.0.0",
+        "asciiart-logo": "0.2.7",
         "console.table": "0.10.0",
         "inquirer": "7.0.0",
         "mysql2": "^2.1.0"
