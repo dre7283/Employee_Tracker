@@ -1,5 +1,5 @@
 const { prompt } = require("inquirer"); 
-const display = require("asciiart-display");
+const display = require("asciiart-logo");
 const db = require("./db");
 // const { viewDepartmentBudgets } = require("./db");
 // const { allowedNodeEnvironmentFlags } = require("process");
@@ -20,7 +20,7 @@ function loadMainPrompts () {
     prompt([
         {
             type: "list",
-            name: "choices",
+            name: "choice",
             message: "What would you like to do?",
             choices: [
                 {
@@ -149,7 +149,7 @@ function viewEmployees() {
 }
 
 // View all the employees that belong to a specific department
-function viewEmployeesBYDepartment() {
+function viewEmployeesByDepartment() {
     db.findAllDepartments()
         .then(([rows]) => {
             let departments = rows;
